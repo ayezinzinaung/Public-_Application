@@ -9,7 +9,7 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        $data = Article :: all ();
+        $data = Article::latest()->paginate(5);
 
         return view('articles.index', [
             'articles' => $data
@@ -17,6 +17,10 @@ class ArticleController extends Controller
     }
     public function detail($id)
     {
-        return "Controller - Article Detail - $id";
+       $data = Article::find($id);
+
+       return view('articles.detail', [
+        'article' => $data
+       ]);
     }
 }
