@@ -29,7 +29,7 @@
                     {{ $comment->content }}
                     <div class="small mt-2">
                         By <b>{{ $comment->user->name }}</b>
-                        {{ $comment->created_at->diff }}
+                        {{ $comment->created_at->diffForHumans() }}
                     </div>
                 </li>
             @endforeach
